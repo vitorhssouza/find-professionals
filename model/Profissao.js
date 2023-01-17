@@ -12,4 +12,5 @@ const Profissoes = sequelize.define('profissao', {
     descricao: {type: DataTypes.STRING, allowNull: false}
 });
 
+
 module.exports = Profissoes;
