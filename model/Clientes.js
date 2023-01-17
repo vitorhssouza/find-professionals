@@ -1,6 +1,7 @@
 const { INTEGER } = require('sequelize');
 const sequelize = require('../db/conn');
 const {DataTypes} = require('sequelize');
+const Endereco = require('../model/Endereco');
 
 const Clientes = sequelize.define('clientes', {
     id_clientes: {
@@ -18,5 +19,7 @@ const Clientes = sequelize.define('clientes', {
 
 
 });
+
+Clientes.belongsTo(Endereco, {foreignKey: 'id_endereco'})
 
 module.exports = Clientes;
