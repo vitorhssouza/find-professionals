@@ -1,6 +1,8 @@
 const express = require('express');                 // Importando pacote/módulo express
 const exphbs = require('express-handlebars');       // Importando pacote/módulo Express-Handlebars
 const app = express();  
+const conn = require('./db/conn')               // Importando o arquivo banco_dados da pasta database
+
 
 // Importando modulos de autenticação 
 const session = require('express-session');
@@ -22,4 +24,11 @@ app.use(express.json());
 // Metodo para reconhecer arquivo css
 app.use(express.static('public'));
 
-app.listen(3000)
+//Verificando conexão com o base de dados e executando o servidor
+conn.sync().then(() => {
+    app.listen(3000, () => {
+        console.log("Servidor Executando em localhost:3000");
+    });
+}).catch((error) => {
+    console.log(error);
+});
