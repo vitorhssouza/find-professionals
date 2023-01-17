@@ -3,6 +3,13 @@ const exphbs = require('express-handlebars');       // Importando pacote/módulo
 const app = express();  
 const conn = require('./db/conn')               // Importando o arquivo banco_dados da pasta database
 
+// Criando os models
+const Endereco = require('./model/Endereco')
+const Admin = require('./model/Admin')
+const Clientes = require('./model/Clientes')
+const Prestadores = require('./model/Prestadores')
+const Profissao = require('./model/Profissao')
+const Servicos = require('./model/Servicos')
 
 // Importando modulos de autenticação 
 const session = require('express-session');
@@ -11,6 +18,7 @@ const FileStore = require('session-file-store')(session);
 
 // Importando metodo flash
 const flash = require('express-flash');
+
 
 
 //Define o Handlebars como Template Engine da nossa aplicação
@@ -25,7 +33,7 @@ app.use(express.json());
 app.use(express.static('public'));
 
 //Verificando conexão com o base de dados e executando o servidor
-conn.sync().then(() => {
+conn.sync({force: true}).then(() => {
     app.listen(3000, () => {
         console.log("Servidor Executando em localhost:3000");
     });
