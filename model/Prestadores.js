@@ -2,6 +2,7 @@ const { INTEGER } = require('sequelize');
 const sequelize = require('../db/conn');
 const {DataTypes} = require('sequelize');
 const Endereco = require('../model/Endereco');
+const Profissoes = require('./Profissao');
 
 const Prestadores = sequelize.define('prestadores', {
     id_prestadores: {
@@ -19,6 +20,7 @@ const Prestadores = sequelize.define('prestadores', {
 });
 
 Prestadores.belongsTo(Endereco, {foreignKey: 'id_endereco'})
+Prestadores.hasMany(Profissoes, {foreignKey: 'id_profissoes'})
 
 module.exports = Prestadores;
 
