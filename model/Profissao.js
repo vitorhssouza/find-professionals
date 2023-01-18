@@ -1,6 +1,7 @@
 const { INTEGER } = require('sequelize');
 const sequelize = require('../db/conn');
 const {DataTypes} = require('sequelize');
+const Prestadores = require('./Prestadores')
 
 const Profissoes = sequelize.define('profissao', {
     id_profissao: {
@@ -11,6 +12,7 @@ const Profissoes = sequelize.define('profissao', {
     },
     descricao: {type: DataTypes.STRING, allowNull: false}
 });
+
 
 
 module.exports = Profissoes;
