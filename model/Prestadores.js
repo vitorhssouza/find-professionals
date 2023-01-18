@@ -20,7 +20,7 @@ const Prestadores = sequelize.define('prestadores', {
 });
 
 Prestadores.belongsTo(Endereco, {foreignKey: 'id_endereco'})
-Prestadores.hasMany(Profissoes, {foreignKey: 'id_profissoes'})
+Profissoes.belongsTo(Prestadores, {foreignKey: 'id_prestadores'})
 
 module.exports = Prestadores;
 
