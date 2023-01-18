@@ -44,8 +44,8 @@ app.use(
 
 
 // Importando a rota principal 
-const menu = require('./routers/homeRoutes');
-app.use(menu);
+const home = require('./routers/homeRoutes')
+app.use('/', home)
 
 
 
