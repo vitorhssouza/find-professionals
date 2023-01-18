@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registre-se</title>
+    <link href="/docs/5.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="container">
+    
+    <form action="/cadastro/save" class="row g-5" method="post" >
+
+        <div class="col-md-6" >
+            <label for="inputEmail4" class="form-label">Nome</label>
+            <input type="text" name="nome" class="form-control" >
+        </div>
+        
+
+        <div class="col-md-6">
+            <label for="inputEmail4" class="form-label">Sobrenome</label>
+            <input type="text" class="form-control" name="sobrenome">
+        </div>
+
+        <div class="col-md-6">
+            <label for="inputEmail4" class="form-label">CPF</label>
+            <input type="text" class="form-control" name="cpf">
+        </div>
+
+        <div class="col-md-6">
+            <label for="inputEmail4" class="form-label">Contato</label>
+            <input type="text" class="form-control" name="contato">
+        </div>
+
+        <div class="col-md-6">
+            <label for="inputAddress" class="form-label">Endereço</label>
+            <input type="text" class="form-control" name="endereco" placeholder="Avenida centro">
+        </div>
+
+        <div class="col-md-6">
+            <label for="inputAddress" class="form-label">Numero</label>
+            <input type="text" class="form-control" name="Numero" placeholder="578A">
+        </div>
+
+        <div class="col-md-6">
+            <label for="inputAddress" class="form-label">Bairro</label>
+            <input type="text" class="form-control" name="bairro" placeholder="578A">
+        </div>
+
+        <div class="col-md-6">
+            <label for="inputCity" class="form-label">Cidade</label>
+            <input type="text" class="form-control" name="cidade">
+        </div>
+
+        <div class="col-md-6">
+            <label for="inputCity" class="form-label">CEP</label>
+            <input type="text" class="form-control" name="cep">
+        </div>
+
+        <div class="col-md-6">
+            <label for="inputState" class="form-label">Estado</label>
+            <select name="estado" class="form-control">
+            <option selected>Choose...</option>
+            <option>...</option>
+            </select>
+        </div>
+
+        <div class="col-md-6">
+            <label for="inputState" class="form-label">Usuário</label>
+            <select name="usuario" class="form-control">
+            <option selected>Opção...</option>
+            <option >Cliente</option>
+            <option>Profissional</option>
+            </select>
+        </div>
+
+        <div class="col-md-6">
+            <label for="inputEmail4" class="form-label">Email</label>
+            <input type="email" class="form-control" name="email">
+        </div>
+
+        <div class="col-md-6">
+            <label for="inputPassword4" class="form-label">Senha</label>
+            <input type="password" class="form-control" name="senha">
+        </div>
+
+        <div class="col-md-6">
+            <label for="inputPassword4" class="form-label">Confirme Sua Senha</label>
+            <input type="password" class="form-control" name="senhaConfirme">
+        </div>
+
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary">Sign in</button>
+        </div> 
+
+    </form>
+
+    <div class="col-md-13">
+        <a type="button" class="btn btn-primary" href="/">Voltar</a> </button>
+    </div>
+    
+</div>
+</body>
+</html>
