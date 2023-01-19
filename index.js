@@ -49,7 +49,14 @@ app.use(
 
 //Seta sessões para requisição 
 app.use((req, res, next) => {
-    if(req.session.userId){
+    if(req.session.userIdCliente){
+        res.locals.session = req.session
+    }
+    next()
+});
+
+app.use((req, res, next) => {
+    if(req.session.userIdPrestador){
         res.locals.session = req.session
     }
     next()
