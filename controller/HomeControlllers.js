@@ -30,15 +30,16 @@ class HomeController{
         // const senha = req.body.senha;
         // const confirmaSenha = req.body.senhaConfirme
 
-        console.log(nome)
+        console.log(req.body)
 
 
 
     }
 
     static loginVerificar(req, res){
-        const nome = req.body.email
-        console.log(nome)
+        
+        console.log(req.body)
+
     }
 
 
