@@ -20,7 +20,7 @@ class HomeController{
     static async cadastroSave(req, res){
 
         let nome = req.body.nome;
-        const sobrenome = req.body.nome;
+        const sobrenome = req.body.sobrenome;
         const cpf = req.body.cpf;
         const contato = req.body.contato;
         const logadouro = req.body.endereco;
@@ -62,19 +62,20 @@ class HomeController{
                 await Clientes.create({
                     nome, sobrenome, cpf, contato, email, senha: senhaCriptografada, id_endereco: endereco.id_endereco
                 });
-                console.log('Cadastrado')
-                res.redirect('/login')
-            }else{
+                console.log('Cadastrado Cliente');
+                res.redirect('/login');
+            }else if(usuario == 'Profissional'){
                 await Prestadores.create({
                     nome, sobrenome, cpf_cnpj: cpf, contato, email, senha: senhaCriptografada, id_endereco: endereco.id_endereco
                 });
-                console.log('Cadastrado')
-                res.redirect('/login')
+                console.log('Cadastrado Profissional');
+                res.redirect('/login');
                 
+            }else {
+                console.log('Informe tipo de usuario');
+                res.redirect('/cadastro');
             }
         };
-
-        
         
     }
 
