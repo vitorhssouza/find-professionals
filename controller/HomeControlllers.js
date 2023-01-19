@@ -3,6 +3,7 @@ const Prestadores = require('../model/Prestadores')
 const Clientes = require('../model/Clientes')
 
 const bcrypt = require('bcryptjs');
+const Administradores = require('../model/Admin');
 
 class HomeController{
     static home(req, res){
@@ -17,6 +18,7 @@ class HomeController{
         res.render('cadastro')
     }
 
+    // Método para salvar cadastro
     static async cadastroSave(req, res){
 
         let nome = req.body.nome;
@@ -79,12 +81,33 @@ class HomeController{
         
     }
 
-    static loginVerificar(req, res){
+    // método para verificar login
+    static async loginVerificar(req, res){
         
-        console.log(req.body)
+        const email = req.body.email;
+        const senha = req.body.senha;
+
+        const cliente = await Clientes.findOne({where: {email: email}});
+        
+
+        if(cliente == null){
+            const prestador = await Prestadores.findOne({where: {email: email}});
+            if(prestador == null){
+                const admin = await Administradores.findOne({where: {email: email}})          
+                if(admin == null){
+                    console.log('Usúario nao exite')
+                    res.redirect('/cadastro')
+                }else{
+
+                }
+            }else{
+
+            }
+        }else{
+            
+        }
 
     }
-
 
 }
 
