@@ -22,6 +22,11 @@ const flash = require('express-flash');
 app.engine('handlebars', exphbs.engine());
 app.set('view engine', 'handlebars');
 
+//Configuração de formulario para receber os dados
+app.use(express.urlencoded({extended: true}));
+app.use(express.json());
+
+
 // Parametro de autenticação 
 app.use(
     session({
@@ -42,13 +47,6 @@ app.use(
     })
 );
 
-
-// Importando a rota principal 
-const home = require('./routers/homeRoutes')
-app.use('/', home)
-
-
-
 //Seta sessões para requisição 
 app.use((req, res, next) => {
     if(req.session.userId){
@@ -57,17 +55,15 @@ app.use((req, res, next) => {
     next()
 });
 
-
-
 // configurando flash messagens
 app.use(flash());
 
 
+// Importando a rota principal 
+const home = require('./routers/homeRoutes')
+app.use('/', home)
 
 
-//Configuração de formulario para receber os dados
-app.use(express.urlencoded({extended: true}));
-app.use(express.json());
 
 // Metodo para reconhecer arquivo css
 app.use(express.static('public'));
