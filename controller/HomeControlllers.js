@@ -89,7 +89,6 @@ class HomeController{
 
         const cliente = await Clientes.findOne({where: {email: email}});
         
-
         if(cliente == null){
             const prestador = await Prestadores.findOne({where: {email: email}});
             if(prestador == null){
@@ -98,13 +97,30 @@ class HomeController{
                     console.log('Usúario nao exite')
                     res.redirect('/cadastro')
                 }else{
-
+                    if(senha != admin.senha){
+                        console.log('Senha incorreta');
+                        res.redirect('/login')
+                    }else{
+                        console.log('Logando')
+                    }
                 }
             }else{
-
+                const senhaCadastrada = bcrypt.compareSync(senha, prestador.senha);
+                if(!senhaCadastrada){
+                    console.log('Senha incorreta');
+                    res.redirect('/login')
+                }else{
+                    console.log('Logando')
+                }
             }
         }else{
-            
+            const senhaC = bcrypt.compareSync(senha, cliente.senha);
+            if(!senhaC){
+                console.log('Senha incorreta');
+                res.redirect('/login')
+            }else{
+                console.log('logado')
+            } 
         }
 
     }
