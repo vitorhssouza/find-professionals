@@ -18,8 +18,8 @@ router.post('/cadastro/save', HomeController.cadastroSave);
 // rota de verificar login
 router.post('/login/verificar', HomeController.loginVerificar)
 
-
-
+// Rota para deslogar
+router.get('/logout', HomeController.logout);
 
 
 
