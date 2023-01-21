@@ -47,9 +47,25 @@ app.use(
     })
 );
 
-//Seta sessões para requisição 
+//Seta sessões para requisição de Cliente
 app.use((req, res, next) => {
-    if(req.session.userId){
+    if(req.session.userIdCliente){
+        res.locals.session = req.session
+    }
+    next()
+});
+
+//Seta sessões para requisição de Prestador
+app.use((req, res, next) => {
+    if(req.session.userIdPrestador){
+        res.locals.session = req.session
+    }
+    next()
+});
+
+// Requisição de admin
+app.use((req, res, next) => {
+    if(req.session.userIdAdmin){
         res.locals.session = req.session
     }
     next()
