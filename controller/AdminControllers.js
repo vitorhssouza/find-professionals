@@ -21,6 +21,10 @@ class AdminControllers{
         res.render('admin/clientes', {layout: false, clientes})
     }
 
+    static async prestadores(req, res){
+        
+    }
+
 
 }
 
