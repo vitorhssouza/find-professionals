@@ -1,5 +1,6 @@
 const Clientes = require("../model/Clientes")
 const Endereco = require("../model/Endereco")
+const Prestadores = require('../model/Prestadores')
 
 class AdminControllers{
 
@@ -10,14 +11,12 @@ class AdminControllers{
 
     // Metodo que lista todos os clientes para admin
     static async clientes(req, res){
-
         const clientes = await Clientes.findAll({
             raw: true,
             include: {
                 model: Endereco
             }
         })
-
         res.render('admin/clientes', {layout: false, clientes})
     }
 
@@ -33,8 +32,25 @@ class AdminControllers{
 
         res.render('admin/detalhes', {layout: false, clientes})
     }
-    static async prestadores(req, res){
 
+    // Mostra todos os prestadores 
+    static async prestadores(req, res){
+        const prestadores = await Prestadores.findAll({
+            raw: true
+        });
+        res.render('admin/prestadores', {layout: false, prestadores})
+    };
+
+    static async detalhesPrestadores(req, res){
+        const id_prestador = req.params.id_prestadores;
+
+        const prestador = await Prestadores.findOne({
+            raw: true, 
+            include: {model: Endereco},
+            where: {id_prestadores: id_prestador}
+        });
+
+        res.render('admin/detalhesPrestadores', {layout: false, prestador})
     }
 
 
