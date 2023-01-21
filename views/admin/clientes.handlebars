@@ -14,7 +14,10 @@
         <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
         
       </a>
-      <a class="navbar-brand" href="/">Find Profissional</a>
+      <div>
+        <a align="center" class="navbar-brand" href="/">Find Profissional</a>
+      </div>
+      
 
       <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
         <li><a href="#" class="nav-link px-2 link-secondary"></a></li>
@@ -22,24 +25,20 @@
         <li><a href="#" class="nav-link px-2 link-dark"></a></li>
       </ul>
       <div class="col-md-3 text-end">
+        <a type="button" class="btn btn-outline-primary me-2" href="/adminhome">Voltar</a>
         <a type="button" class="btn btn-danger my-2 my-sm-0" href="/logout">Sair</a>
       </div>
     </header>
-    <h1>Clientes</h1>
-        <table>
+    <div align="center">
+        <h1>Clientes</h1>
+    </div>
+    <div align="center">
+        <table border="1px">
         <tr>
             <th>ID</th>
             <th>Nome</th>
             <th>Sobrenome</th>
             <th>CPF</th>
-            <th>Logadouro</th>
-            <th>Número</th>
-            <th>Bairro</th>
-            <th>Cidade</th>
-            <th>Cep</th>
-            <th>Estado</th>
-            <th>E-mail</th>
-            <th>data de Cadastro</th>
 
         </tr>
         <tbody>
@@ -49,24 +48,17 @@
             <th>{{this.nome}}</th>
             <th>{{this.sobrenome}}</th>
             <th>{{this.cpf}}</th>
-            <th>{{this.[endereco.logadouro]}}</th>
-            <th>{{this.[endereco.numero]}}</th>
-            <th>{{this.[endereco.bairro]}}</th>
-            <th>{{this.[endereco.cidade]}}</th>
-            <th>{{this.[endereco.cep]}}</th>
-            <th>{{this.[endereco.estado]}}</th>
             <th>
-                <!--/clube/admin/:id/associado/detalhes/:id-->
-            <!--<a href="/clube/admin/associado/detalhes/{{this.id_associados}}">Exibir Detalhes</a>-->
-            {{!-- <a href="/clube/admin/{{this.admin}}/associado/detalhes/{{this.id_associados}}">Exibir Detalhes</a>
-            <a href="/clube/admin/{{this.admin}}/associado/{{this.id_associados}}/ativar">Ativar</a><br>
-            <a href="/clube/admin/{{this.admin}}/associado/{{this.id_associados}}/desativa">Desativar</a>
-            <a href="/clube/admin/{{this.admin}}/associado/{{this.id_associados}}/delete">Excluir</a> --}}
+            <a href="/admin/detalhes/clientes/{{this.id_clientes}}">Detalhes</a>
+            <br>
+            <a href="/admin/delete/clientes/{{this.id_clientes}}">Excluir</a>
         </th>
         </tr>
         {{/each}}
         </tbody>
         </table>
+    </div>
+        
     
 </body>
 </html>
