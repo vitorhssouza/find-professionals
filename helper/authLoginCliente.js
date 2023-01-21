@@ -1,6 +1,6 @@
-module.exports.checarLogado = function (req, res, next){
-    const userId = req.session.userId;
-    if(!userId){
+module.exports.checarLogadoCliente = function (req, res, next){
+    const userIdCliente = req.session.userIdCliente;
+    if(!userIdCliente){
         res.redirect('/login');
     }
     next();
