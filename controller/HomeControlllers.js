@@ -101,7 +101,12 @@ class HomeController{
                         console.log('Senha incorreta');
                         res.redirect('/login')
                     }else{
-                        console.log('Logando')
+                        req.session.userId = admin.id_admin
+                        req.session.save(()=>{
+                            console.log('Fez o login de forma correta')
+                            res.redirect('/adminhome')                    
+                        })
+                        //console.log('Logando')
                     }
                 }
             }else{
@@ -123,6 +128,13 @@ class HomeController{
             } 
         }
 
+    }
+
+    static logout(req, res){
+        if(req.session.userId){
+            req.session.destroy();
+            res.redirect('/');
+        }
     }
 
 }
