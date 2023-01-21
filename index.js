@@ -65,6 +65,8 @@ app.use(flash());
 const home = require('./routers/homeRoutes')
 app.use('/', home)
 
+const adminHome = require('./routers/adminRoutes')
+app.use('/', adminHome)
 
 
 // Metodo para reconhecer arquivo css
