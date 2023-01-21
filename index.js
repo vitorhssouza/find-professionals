@@ -49,18 +49,13 @@ app.use(
 
 //Seta sessões para requisição 
 app.use((req, res, next) => {
-    if(req.session.userIdCliente){
+    if(req.session.userId){
         res.locals.session = req.session
     }
     next()
 });
 
-app.use((req, res, next) => {
-    if(req.session.userIdPrestador){
-        res.locals.session = req.session
-    }
-    next()
-});
+
 
 // configurando flash messagens
 app.use(flash());
