@@ -8,7 +8,7 @@ const Endereco = require('./model/Endereco')
 const Admin = require('./model/Admin')
 const Clientes = require('./model/Clientes')
 const Prestadores = require('./model/Prestadores')
-const Profissao = require('./model/Profissao')
+const Profissoes = require('./model/Profissoes')
 const Servicos = require('./model/Servicos')
 
 // Importando modulos de autenticação 
