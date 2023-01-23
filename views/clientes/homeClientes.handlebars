@@ -36,7 +36,55 @@
         </div>
 
     </header> 
+    
     <h3 align="center">Bem-Vindo {{cliente.nome}} {{cliente.sobrenome}}</h1>
+    <hr>
+
+    <div align="center">
+
+        <form action="/prestador/servico" method="GET">
+            <div>
+                <select style="" class="input-2" name="filtro">
+                    <option selected>Opções de filtragens</option>
+                    <option value="1">Nome Prestador</option>
+                    <option value="2">Profissão</option>
+                </select>
+                <br>
+                <br>
+                <input class="input-2" name="pesquisar" type="text" placeholder="Pesquise" aria-label="Search"/>
+                <br>
+                
+                <br>
+                <input class="input-2" type="submit" value="Pesquisar"/>
+            </div>
+        </form>
+    </div>  
+
+    <div align="center">
+        <table border="1px">
+        <tr>
+            <th>Nome</th>
+            <th>Sobrenome</th>
+            <th>Contato</th>
+            <th>Profissão</th>
+
+        </tr>
+        <tbody>
+        {{#each prestadores}}
+        <tr>
+            <th>{{this.[prestadore.nome]}}</th>
+            <th>{{this.[prestadore.sobrenome]}}</th>
+            <th>{{this.[prestadore.contato]}}</th>
+            <th>{{this.descricao}}</th>
+            <th>
+            <a href="/cliente/detalhes/prestador/{{this.[prestadore.id_prestadores]}}">Detalhes</a>
+            <br>
+        </th>
+        </tr>
+        {{/each}}
+        </tbody>
+        </table>
+    </div>
 </body>
 </html>
 
