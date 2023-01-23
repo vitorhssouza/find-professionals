@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edição</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+</head>
+<body>
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+        <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+            <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+        
+        </a>
+        <div align="center">
+            <a class="navbar-brand" href="/homeCliente">Find Profissional</a>
+        </div>
+        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+            <li><a href="/homeCliente/perfil" class="nav-link px-2 link-secondary">Perfil</a></li>
+            <li><a href="#" class="nav-link px-2 link-dark">Histórico de Contratações</a></li>
+            <li><a href="/homeCliente" class="nav-link px-2 link-dark">voltar</a></li>
+        </ul>
+        
+        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0"></ul>
+        <div class="col-md-3 text-end">
+            <a type="button" class="btn btn-danger my-2 my-sm-0" href="/logout">Sair</a>
+        </div>
+
+    </header> 
+    <div class="container">
+    
+        {{#with cliente}}
+        
+        <form action="/homeCliente/perfil/editSave" class="row g-5" method="post" >
+
+            <div class="col-md-6" >
+                <label for="inputEmail4" class="form-label">Nome</label>
+                <input type="text" name="nome" class="form-control" value="{{nome}}">
+            </div>
+            
+
+            <div class="col-md-6">
+                <label for="inputEmail4" class="form-label">Sobrenome</label>
+                <input type="text" class="form-control" name="sobrenome" value="{{sobrenome}}">
+            </div>
+
+            <div class="col-md-6">
+                <label for="inputEmail4" class="form-label">CPF</label>
+                <input type="text" class="form-control" name="cpf" value="{{cpf}}">
+            </div>
+
+            <div class="col-md-6">
+                <label for="inputEmail4" class="form-label">Contato</label>
+                <input type="text" class="form-control" name="contato" value="{{contato}}">
+            </div>
+
+            <div class="col-md-6">
+                <label for="inputAddress" class="form-label">Endereço</label>
+                <input type="text" class="form-control" name="endereco" value="{{[endereco.logadouro]}}">
+            </div>
+
+            <div class="col-md-6">
+                <label for="inputAddress" class="form-label">Numero</label>
+                <input type="text" class="form-control" name="numero" value="{{[endereco.numero]}}">
+            </div>
+
+            <div class="col-md-6">
+                <label for="inputAddress" class="form-label">Bairro</label>
+                <input type="text" class="form-control" name="bairro" value="{{[endereco.bairro]}}">
+            </div>
+
+            <div class="col-md-6">
+                <label for="inputCity" class="form-label">Cidade</label>
+                <input type="text" class="form-control" name="cidade" value="{{[endereco.cidade]}}">
+            </div>
+
+            <div class="col-md-6">
+                <label for="inputCity" class="form-label">CEP</label>
+                <input type="text" class="form-control" name="cep" value="{{[endereco.cep]}}">
+            </div>
+
+            <div class="col-md-6">
+                <label for="inputCity" class="form-label">Estado</label>
+                <input type="text" class="form-control" name="estado" value="{{[endereco.estado]}}">
+            </div>
+
+            <div align="center" class="col-12">
+                <br>
+                <button class="btn btn-primary" type="submit">Salvar</button>
+            </div> 
+
+        {{/with}}
+        </form>
+
+    <div align="center" class="col-md-13">
+        <br>
+        <a type="button" class="btn btn-primary" href="/homeCliente/perfil">Voltar</a> </button>
+    </div>
+
+    
+</body>
+</html>
