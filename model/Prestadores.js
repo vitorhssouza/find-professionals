@@ -2,7 +2,7 @@ const { INTEGER } = require('sequelize');
 const sequelize = require('../db/conn');
 const {DataTypes} = require('sequelize');
 const Endereco = require('../model/Endereco');
-const Profissoes = require('./Profissao');
+const Profissoes = require('./Profissoes');
 
 const Prestadores = sequelize.define('prestadores', {
     id_prestadores: {
