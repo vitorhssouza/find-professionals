@@ -41,6 +41,7 @@ class AdminControllers{
         res.render('admin/prestadores', {layout: false, prestadores})
     };
 
+    // Rota de detalhes de prestadores
     static async detalhesPrestadores(req, res){
         const id_prestador = req.params.id_prestadores;
 
@@ -50,9 +51,26 @@ class AdminControllers{
             where: {id_prestadores: id_prestador}
         });
 
-        res.render('admin/detalhesPrestadores', {layout: false, prestador})
-    }
+        res.render('admin/detalhesPrestadores', {layout: false, prestador});
+    };
 
+    // Rota de excluir clientes
+    static async excluirCliente(req, res){
+        const id = req.params.id_clientes
+
+        await Clientes.destroy({where: {id_clientes: id}})
+        console.log('Cliente excluído com sucesso')
+        res.redirect('/admin/clientes')
+    };
+
+    // Método para excluir profissional 
+    static async excluirPrestador(req, res){
+        const id = req.params.id_prestadores
+
+        await Prestadores.destroy({where: {id_prestadores: id}})
+        console.log('Prestador excluído com sucesso')
+        res.redirect('/admin/prestadores')
+    };
 
 }
 
