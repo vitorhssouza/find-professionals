@@ -81,8 +81,13 @@ app.use(flash());
 const home = require('./routers/homeRoutes')
 app.use('/', home)
 
+// Importando rota principal adm
 const adminHome = require('./routers/adminRoutes')
 app.use('/', adminHome)
+
+// Importando rota principal cliente
+const clientesHome = require('./routers/clientesRoutes')
+app.use('/', clientesHome)
 
 
 // Metodo para reconhecer arquivo css
