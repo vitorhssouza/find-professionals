@@ -89,7 +89,7 @@ class HomeController{
 
         const cliente = await Clientes.findOne({where: {email: email}});
         
-        if(cliente == null){
+        if(!cliente){
             const prestador = await Prestadores.findOne({where: {email: email}});
             if(prestador == null){
                 const admin = await Administradores.findOne({where: {email: email}})          
@@ -129,7 +129,6 @@ class HomeController{
                     console.log('Fez o login de forma correta')
                     res.redirect('/homeCliente')                    
                 })
-                console.log('logado')
             } 
         }
 
