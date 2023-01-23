@@ -18,4 +18,12 @@ router.get('/admin/prestadores', AdminControllers.prestadores)
 // Rota de detalhes de prestador
 router.get('/admin/detalhes/prestador/:id_prestadores', AdminControllers.detalhesPrestadores)
 
+
+// Rota de excluir clientes
+router.get('/admin/delete/clientes/:id_clientes', AdminControllers.excluirCliente)
+
+// // Rota de excluir prestador
+router.get('/admin/delete/prestador/:id_prestadores', AdminControllers.excluirPrestador)
+
+
 module.exports = router
