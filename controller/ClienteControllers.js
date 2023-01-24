@@ -3,17 +3,52 @@ const Clientes = require("../model/Clientes")
 const Endereco = require("../model/Endereco")
 const Prestadores = require('../model/Prestadores')
 const Profissoes = require("../model/Profissoes")
+const { Op } = require('sequelize');
 
 class ClientesControllers{
     static async clienteHome(req, res){
         const id_clientes = req.session.userIdCliente
-        const cliente = await Clientes.findOne({raw: true, where:{id_clientes: id_clientes}})
-        const prestadores = await Profissoes.findAll({
-            raw: true,
-            include: {model: Prestadores}
-        });      
 
-        res.render('clientes/homeClientes', {layout: false, cliente, prestadores})
+        const filtro = req.query.filtro;
+        const pesquisa = req.query.pesquisar;
+
+        if(filtro == 1){
+            const cliente = await Clientes.findOne({raw: true, where:{id_clientes: id_clientes}})
+
+            const prestadores = await Prestadores.findAll({
+                raw: true,
+                include: {model: Profissoes},
+                where: {nome: {[Op.like]: `%${pesquisa}%`}}
+            })
+
+            console.log(prestadores)
+            res.render('clientes/homeClientes', {layout: false, cliente, prestadores})
+
+        }else if(filtro == 2){
+            const cliente = await Clientes.findOne({raw: true, where:{id_clientes: id_clientes}})
+
+            const profissao = await Profissoes.findAll({
+                raw: true,
+                include: {model: Prestadores},
+                where: {descricao: {[Op.like]: `%${pesquisa}%`}}
+            })
+
+            console.log(profissao)
+            res.render('clientes/homeClientes', {layout: false, cliente, profissao})
+
+        }else{
+            const cliente = await Clientes.findOne({raw: true, where:{id_clientes: id_clientes}})
+            const prestadores = await Prestadores.findAll({
+                raw: true,
+                include: {model: Profissoes},
+                where: {nome: {[Op.like]: `%${pesquisa}%`}}
+            })
+
+            console.log(prestadores)
+            res.render('clientes/homeClientes', {layout: false, cliente, prestadores})
+        }
+        
+        
     };
 
     // Método para mostrar perfil
