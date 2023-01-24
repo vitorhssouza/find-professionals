@@ -16,4 +16,7 @@ router.get('/homeCliente/perfil/edit', checarLogadoCliente, ClienteControllers.e
 // Rota de salvar edição no perfil
 router.post('/homeCliente/perfil/editSave', checarLogadoCliente, ClienteControllers.editSave)
 
+// Filtro de pestador de serviço
+//router.get('/cliente/prestador/servico', checarLogadoCliente, ClienteControllers.editSave)
+
 module.exports = router
