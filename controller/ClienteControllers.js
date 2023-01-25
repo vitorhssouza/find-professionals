@@ -3,6 +3,7 @@ const Clientes = require("../model/Clientes")
 const Endereco = require("../model/Endereco")
 const Prestadores = require('../model/Prestadores')
 const Profissoes = require("../model/Profissoes")
+const Servicos = require("../model/Servicos")
 const { Op } = require('sequelize');
 
 class ClientesControllers{
@@ -117,7 +118,38 @@ class ClientesControllers{
 
         res.render('clientes/detalhes', {layout: false, prestador})
 
-    }
+    };
+
+    // Método de contratar prestador
+    static async contratar(req, res){
+        const id = req.params.id_prestador;
+        //const id_cliente = req.session.userIdCliente;
+
+        const prestador = await Prestadores.findOne({
+            raw: true,
+            include: {model: Profissoes},
+            where: {id_prestadores: id}
+        })
+        res.render('clientes/contratar', {layout: false, prestador});
+    };;
+
+    // Método de salvar contratação de serviço
+    static async contratarSave(req, res){
+        const id_cliente = req.session.userIdCliente;
+        const id_prestador = req.params.id_prestador;
+        const descricao = req.body.descricao
+
+        try {
+            await Servicos.create({descricao, id_prestadores: id_prestador, id_clientes: id_cliente})
+            console.log('salvo no banco')
+        } catch (error) {
+            console.log(error)  
+        }
+
+        res.redirect('/homeCliente')
+    };
+
+
 
 }
 
