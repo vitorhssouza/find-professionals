@@ -16,6 +16,14 @@ router.get('/homeCliente/perfil/edit', checarLogadoCliente, ClienteControllers.e
 // Rota de salvar edição no perfil
 router.post('/homeCliente/perfil/editSave', checarLogadoCliente, ClienteControllers.editSave)
 
+// Rota de detalhes de prestadores
+router.get('/cliente/detalhes/prestador/:id_prestadores', checarLogadoCliente, ClienteControllers.detahes)
+
+// Rota de contratar serviço
+router.get('/cliente/contratar/prestador/:id_prestadores')
+
+
+
 // Filtro de pestador de serviço
 //router.get('/cliente/prestador/servico', checarLogadoCliente, ClienteControllers.editSave)
 
