@@ -20,7 +20,12 @@ router.post('/homeCliente/perfil/editSave', checarLogadoCliente, ClienteControll
 router.get('/cliente/detalhes/prestador/:id_prestadores', checarLogadoCliente, ClienteControllers.detahes)
 
 // Rota de contratar serviço
-router.get('/cliente/contratar/prestador/:id_prestadores')
+router.get('/cliente/contratar/prestador/:id_prestador', checarLogadoCliente, ClienteControllers.contratar)
+
+// Rota para salvar contratação de serviço
+router.post('/cliente/contratar/prestador/save/:id_prestador', checarLogadoCliente, ClienteControllers.contratarSave)
+
+
 
 
 
