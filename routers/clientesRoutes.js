@@ -25,6 +25,9 @@ router.get('/cliente/contratar/prestador/:id_prestador', checarLogadoCliente, Cl
 // Rota para salvar contratação de serviço
 router.post('/cliente/contratar/prestador/save/:id_prestador', checarLogadoCliente, ClienteControllers.contratarSave)
 
+// Rota de historico de contratação
+router.get('/cliente/historico', checarLogadoCliente, ClienteControllers.historico)
+
 
 
 
