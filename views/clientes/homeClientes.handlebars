@@ -42,7 +42,7 @@
 
     <div align="center">
 
-        <form action="/prestador/servico" method="GET">
+        <form action="/homeCliente" method="GET">
             <div>
                 <select style="" class="input-2" name="filtro">
                     <option selected>Opções de filtragens</option>
@@ -73,13 +73,13 @@
         <tbody>
         {{#each prestadores}}
         <tr>
-            <th>{{this.[prestadore.nome]}}</th>
-            <th>{{this.[prestadore.sobrenome]}}</th>
-            <th>{{this.[prestadore.contato]}}</th>
-            <th>{{this.descricao}}</th>
-            
+            <th>{{this.nome}}</th>
+            <th>{{this.sobrenome}}</th>
+            <th>{{this.contato}}</th>
+            <th>{{this.[profissaos.descricao]}}</th>
             <th>
-            <a href="/cliente/detalhes/prestador/{{this.[prestadore.id_prestadores]}}">Detalhes</a>
+            <a href="/cliente/detalhes/prestador/{{this.id_prestadores}}">Detalhes</a>
+            <a href="/cliente/contratar/prestador/{{this.id_prestadores}}">Contratar</a>
             <br>
         </th>
         </tr>
