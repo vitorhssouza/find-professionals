@@ -149,6 +149,24 @@ class ClientesControllers{
         res.redirect('/homeCliente')
     };
 
+    // Metodo que visualiza o historico de contratação de serviço
+    static async historico(req, res){
+        const id_cliente = req.session.userIdCliente;
+
+        const cliente = await Clientes.findOne({
+            raw: true,
+            include: {
+                model: Servicos,
+                include: {
+                    model: Prestadores
+                }
+            },
+            where: {id_clientes: id_cliente}
+        })
+
+        res.render('clientes/historico', {layout: false})
+    }
+
 
 
 }
