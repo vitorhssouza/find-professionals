@@ -8,7 +8,6 @@ const { Op } = require('sequelize');
 class ClientesControllers{
     static async clienteHome(req, res){
         const id_clientes = req.session.userIdCliente
-
         const filtro = req.query.filtro;
         const pesquisa = req.query.pesquisar;
 
@@ -19,34 +18,33 @@ class ClientesControllers{
                 raw: true,
                 include: {model: Profissoes},
                 where: {nome: {[Op.like]: `%${pesquisa}%`}}
-            })
+            });
 
-            console.log(prestadores)
             res.render('clientes/homeClientes', {layout: false, cliente, prestadores})
 
         }else if(filtro == 2){
             const cliente = await Clientes.findOne({raw: true, where:{id_clientes: id_clientes}})
 
-            const profissao = await Profissoes.findAll({
+            const prestadores = await Prestadores.findAll({
                 raw: true,
-                include: {model: Prestadores},
-                where: {descricao: {[Op.like]: `%${pesquisa}%`}}
-            })
-
-            console.log(profissao)
-            res.render('clientes/homeClientes', {layout: false, cliente, profissao})
+                include: {
+                    model: Profissoes,
+                    where: {descricao: {[Op.like]: `%${pesquisa}%`}}
+                }     
+            });
+        
+            res.render('clientes/homeClientes', {layout: false, cliente, prestadores})
 
         }else{
             const cliente = await Clientes.findOne({raw: true, where:{id_clientes: id_clientes}})
             const prestadores = await Prestadores.findAll({
                 raw: true,
-                include: {model: Profissoes},
-                where: {nome: {[Op.like]: `%${pesquisa}%`}}
+                include: {model: Profissoes}
             })
 
-            console.log(prestadores)
+            
             res.render('clientes/homeClientes', {layout: false, cliente, prestadores})
-        }
+        };
         
         
     };
