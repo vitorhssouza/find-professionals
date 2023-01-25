@@ -105,6 +105,20 @@ class ClientesControllers{
 
     };
 
+    // Método de detalhes de prestador
+    static async detahes(req, res){
+        const id = req.params.id_prestadores;
+
+        const prestador = await Prestadores.findOne({
+            raw: true,
+            include: {model: Endereco},
+            where: {id_prestadores: id}
+        })
+
+        res.render('clientes/detalhes', {layout: false, prestador})
+
+    }
+
 }
 
 module.exports = ClientesControllers
