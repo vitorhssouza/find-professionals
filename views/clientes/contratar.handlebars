@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contratar</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+</head>
+<body>
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+        <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+            <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+        
+        </a>
+        <div align="center">
+            <a class="navbar-brand" href="/homeCliente">Find Profissional</a>
+        </div>
+        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+            <li><a href="/homeCliente/perfil" class="nav-link px-2 link-secondary">Perfil</a></li>
+            <li><a href="#" class="nav-link px-2 link-dark">Histórico de Contratações</a></li>
+            <li><a href="/cliente/detalhes/prestador/{{prestador.id_prestadores}}" class="nav-link px-2 link-dark">Voltar</a></li>
+        </ul>
+        
+        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0"></ul>
+        <div class="col-md-3 text-end">
+            <a type="button" class="btn btn-danger my-2 my-sm-0" href="/logout">Sair</a>
+        </div>
+
+    </header> 
+
+    <div align="">
+        <form action="/cliente/contratar/prestador/save/{{prestador.id_prestadores}}" method="post">
+            {{#with prestador}}
+            <ul class="list-group">
+                <li class="list-group-item">Nome: {{nome}}</li>
+                <li class="list-group-item">Contato: {{contato}}</li>
+                <li class="list-group-item">Profissão: {{[profissaos.descricao]}}</li>
+                <li class="list-group-item">
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label"> Descrição do Serviço</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" name="descricao" rows="3"></textarea>
+                    </div>
+                </li>
+                
+            </ul>
+            {{/with}}
+            <div align="center" >
+                <br>
+                <button type="submit" class="btn btn-primary">Contratar</button>
+            </div>
+        </form>
+    </div>
+
+
+</body>
+</html>
