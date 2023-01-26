@@ -30,9 +30,4 @@ router.get('/cliente/historico', checarLogadoCliente, ClienteControllers.histori
 
 
 
-
-
-// Filtro de pestador de serviço
-//router.get('/cliente/prestador/servico', checarLogadoCliente, ClienteControllers.editSave)
-
 module.exports = router
