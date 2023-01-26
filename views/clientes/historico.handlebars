@@ -42,7 +42,7 @@
            
         </tr>
         <tbody>
-        {{#with cliente}}
+        {{#each cliente}}
         {{#if [servicos.prestadore.profissaos.id_profissao]}}
             <tr>
                 <th scope="col">{{[servicos.prestadore.nome]}}</th>
@@ -58,7 +58,7 @@
             </th>
             </tr>
         {{/if}}
-        {{/with}}
+        {{/each}}
         </tbody>
     </table>
 
