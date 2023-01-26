@@ -153,7 +153,7 @@ class ClientesControllers{
     static async historico(req, res){
         const id_cliente = req.session.userIdCliente;
 
-        const cliente = await Clientes.findOne({
+        const cliente = await Clientes.findAll({
             raw: true,
             include: {
                 model: Servicos,
