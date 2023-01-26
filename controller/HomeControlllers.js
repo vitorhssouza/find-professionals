@@ -115,7 +115,11 @@ class HomeController{
                     console.log('Senha incorreta');
                     res.redirect('/login')
                 }else{
-                    console.log('Logando')
+                    req.session.userIdPrestador = prestador.id_prestadores
+                    req.session.save(()=>{
+                    console.log('Fez o login de forma correta')
+                    res.redirect('/homePrestador')                    
+                })
                 }
             }
         }else{
