@@ -12,7 +12,8 @@ const Servicos = sequelize.define('servicos', {
         autoIncrement: true,
         allowNull: false
     },
-    descricao: {type: DataTypes.STRING(300), allowNull: false}
+    descricao: {type: DataTypes.STRING(300), allowNull: false},
+    status: {type: DataTypes.BOOLEAN, allowNull: false}
 });
 
 
