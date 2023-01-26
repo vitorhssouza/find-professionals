@@ -46,9 +46,9 @@
                 <th>{{this.nome}}</th>
                 <th>{{this.contato}}</th>
                 <th>                
-                <a href="/cliente/detalhes/prestador/{{this.id_prestadores}}">Detalhes</a> |
-                <a href="/cliente/contratar/prestador/{{this.id_prestadores}}">Aceitar</a> |
-                <a href="/cliente/contratar/prestador/{{this.id_prestadores}}">Recusar</a>
+                <a href="/prestador/detalhes/cliente/{{this.id_clientes}}/{{this.[servicos.id_servico]}}">Detalhes</a> |
+                <a href="/prestador/aceitar/cliente/{{this.[servicos.id_servico]}}">Aceitar</a> |
+                <a href="/prestador/recursar/cliente/{{this.[servicos.id_servico]}}">Recusar</a>
                 </th>
                 <br>
             </tr>
