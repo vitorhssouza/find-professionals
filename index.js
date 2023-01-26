@@ -89,6 +89,10 @@ app.use('/', adminHome)
 const clientesHome = require('./routers/clientesRoutes')
 app.use('/', clientesHome)
 
+// Importando rota principal de prestador
+const prestadorHome = require('./routers/prestadoresRoutes')
+app.use('/', prestadorHome)
+
 
 // Metodo para reconhecer arquivo css
 app.use(express.static('public'));
