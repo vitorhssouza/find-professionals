@@ -33,12 +33,13 @@
         <h1>Clientes</h1>
     </div>
     <div align="center">
-        <table border="1px">
+        <table class="table table-striped">
         <tr>
             <th>ID</th>
             <th>Nome</th>
             <th>Sobrenome</th>
             <th>CPF</th>
+            <th></th>
 
         </tr>
         <tbody>
@@ -52,7 +53,7 @@
             <a href="/admin/detalhes/clientes/{{this.id_clientes}}">Detalhes</a>
             <br>
             <a href="/admin/delete/clientes/{{this.id_clientes}}">Excluir</a>
-        </th>
+        
         </tr>
         {{/each}}
         </tbody>
