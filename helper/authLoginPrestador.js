@@ -1,7 +1,9 @@
 module.exports.checarLogadoPrestador = function (req, res, next){
     const userIdPrestador = req.session.userIdPrestador;
-    if(!userIdCliente){
+    if(!userIdPrestador){
         res.redirect('/login');
+    }else{
+        next();
     }
-    next();
+    
 }
