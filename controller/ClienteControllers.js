@@ -158,13 +158,16 @@ class ClientesControllers{
             include: {
                 model: Servicos,
                 include: {
-                    model: Prestadores
+                    model: Prestadores,
+                    include: {model: Profissoes}
                 }
             },
             where: {id_clientes: id_cliente}
         })
 
-        res.render('clientes/historico', {layout: false})
+        console.log(cliente)
+
+        res.render('clientes/historico', {layout: false, cliente})
     }
 
 
