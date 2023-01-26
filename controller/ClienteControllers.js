@@ -140,7 +140,7 @@ class ClientesControllers{
         const descricao = req.body.descricao
 
         try {
-            await Servicos.create({descricao, id_prestadores: id_prestador, id_clientes: id_cliente})
+            await Servicos.create({descricao, status: false, id_prestadores: id_prestador, id_clientes: id_cliente})
             console.log('salvo no banco')
         } catch (error) {
             console.log(error)  
@@ -164,8 +164,6 @@ class ClientesControllers{
             },
             where: {id_clientes: id_cliente}
         })
-
-        console.log(cliente)
 
         res.render('clientes/historico', {layout: false, cliente})
     }
