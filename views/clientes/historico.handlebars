@@ -43,22 +43,21 @@
         </tr>
         <tbody>
         {{#with cliente}}
-        <tr>
-            <th scope="col">{{[servicos.prestadore.nome]}}</th>
-            <th>{{[servicos.prestadore.sobrenome]}}</th>
-            <th>{{[servicos.prestadore.contato]}}</th>
-            <th>{{[servicos.prestadore.profissaos.descricao]}}</th>
-            <th>{{[servicos.createdAt]}}</th>
-            {{#if [servicos.status]}}
-                <th>Aceito</th>
-            {{else}}
-                <th>Pendente</th>
-            {{/if}}
-
-
-            
-        </th>
-        </tr>
+        {{#if [servicos.prestadore.profissaos.id_profissao]}}
+            <tr>
+                <th scope="col">{{[servicos.prestadore.nome]}}</th>
+                <th>{{[servicos.prestadore.sobrenome]}}</th>
+                <th>{{[servicos.prestadore.contato]}}</th>
+                <th>{{[servicos.prestadore.profissaos.descricao]}}</th>
+                <th>{{[servicos.createdAt]}}</th>
+                {{#if [servicos.status]}}
+                    <th>Aceito</th>
+                {{else}}
+                    <th>Pendente</th>
+                {{/if}} 
+            </th>
+            </tr>
+        {{/if}}
         {{/with}}
         </tbody>
     </table>
