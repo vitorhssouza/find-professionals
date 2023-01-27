@@ -19,7 +19,7 @@
         </div>
         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
             <li><a href="#" class="nav-link px-2 link-secondary">Perfil</a></li>
-            <li><a href="#" class="nav-link px-2 link-dark">Histórico de Serviços</a></li>
+            <li><a href="/prestador/historico" class="nav-link px-2 link-dark">Histórico de Serviços</a></li>
             <li><a href="/homePrestador" class="nav-link px-2 link-dark">Voltar</a></li>
         </ul>
         
@@ -42,12 +42,19 @@
         <li class="list-group-item">Data da Solicitação: {{data}}</li>
     </ul>
     {{/with}}
-    <div align="center">
-        <br>
-        <a type="button" class="btn btn-primary" href="/prestador/aceitar/cliente/{{id_servico}}">Aceitar</a>
-    </div>
+    {{#if cliente.status}}
+        <tr>
 
-
+        </tr>
+    {{else}}
+        <div align="center">
+            <br>
+            <a type="button" class="btn btn-primary" href="/prestador/aceitar/cliente/{{id_servico}}">Aceitar</a>
+            <br>
+            <br>
+            <a type="button" class="btn btn-primary" href="/prestador/recursar/cliente/{{id_servico}}">Recusar</a>
+        </div>
+    {{/if}}
     
 </body>
 </html>
