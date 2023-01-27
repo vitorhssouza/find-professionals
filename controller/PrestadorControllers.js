@@ -35,11 +35,14 @@ class PrestadorControllers{
 
         const servico = await Servico.findOne({
             raw: true,
-            where: {id_servico: id_servico, status: false}
+            where: {id_servico: id_servico}
         });
 
         cliente.servico = servico.descricao;
+        cliente.status = servico.status;
         cliente.data = servico.createdAt
+
+        console.log(cliente)
 
         res.render('prestadores/detalhes', {layout: false, cliente, id_servico})
 
@@ -56,6 +59,22 @@ class PrestadorControllers{
             console.log(error)
         }
         res.redirect('/homePrestador')
+    };
+
+    // Método que recusa o serviço
+    static async recusar(req, res){
+
+    };
+
+    // Metodo que lista o historico de serviço
+    static async historico(req, res){
+
+        const cliente = await Clientes.findAll({
+            raw: true,
+            include: {model: Servico, where: {status: true}}
+        });
+
+        res.render('prestadores/historico', {layout: false, cliente})
     };
 
 }
