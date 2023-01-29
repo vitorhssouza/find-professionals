@@ -32,27 +32,29 @@
             </div>
         </form>
     </div>
-    
-    {{!-- <div align="center">
-         <div class="area-grid">
-        <div class="grid-card">
-            
-            <h5>teste</h5>
-            <form action="/clube/associado/{{this.id}}/agendamento/save" method="post">
-                <input type="hidden" name="areasComuns" value="{{this.id_areas_comuns}}" />
-                <ul class="form-items">  
-                    <li>teste</li>
-                </ul>
-                <div class="divider"></div>
-                <div class="input-box">
-                    <label for="data">Selecione uma data</label>
-                    <input id="data" type="date" name="data" >
+    <br>
+    <div align="center">
+        {{#if status}}
+            <main>
+                {{#each prestadores}}
+                <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+                <div class="col">
+                    <div class="card mb-4 rounded-3 shadow-sm">
+                    <div class="card-header py-3">
+                        <h4 class="my-0 fw-normal">{{this.nome}}</h4>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-unstyled mt-3 mb-4">
+                        <li>Profissão: {{this.[profissaos.descricao]}}</li>
+                        <li>Contato: {{this.contato}}</li>
+                        </ul>
+                        <a href="/login" type="button" class="w-100 btn btn-lg btn-outline-primary" >Contratar</a>
+                    </div>
+                    </div>
                 </div>
-                <button type="submit" class="btn-submit">Cadastrar</button>
-            </form>
-            
-        </div>
-    </div> --}}
-
+                {{/each}}
+            </main>
+        {{/if}}
+    </div>
 </body>
 </html>
