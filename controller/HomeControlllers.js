@@ -1,13 +1,52 @@
 const Endereco = require('../model/Endereco')
 const Prestadores = require('../model/Prestadores')
+const Profissoes = require('../model/Profissoes')
 const Clientes = require('../model/Clientes')
+
+const { Op } = require('sequelize');
 
 const bcrypt = require('bcryptjs');
 const Administradores = require('../model/Admin');
 
 class HomeController{
-    static home(req, res){
-        res.render('home')
+    
+    // Método do menu
+    static async home(req, res){
+
+        const filtro = req.query.filtro;
+        const pesquisa = req.query.pesquisar;
+
+        if(filtro == 1){
+            const prestadores = await Prestadores.findAll({
+                raw: true,
+                include: {model: Profissoes},
+                where: {nome: {[Op.like]: `%${pesquisa}%`}}
+            });
+
+            console.log(prestadores)
+            res.render('home', prestadores)
+
+        }else if(filtro == 2){
+            const prestadores = await Prestadores.findAll({
+                raw: true,
+                include: {
+                    model: Profissoes,
+                    where: {descricao: {[Op.like]: `%${pesquisa}%`}}
+                }     
+            });
+
+            console.log(prestadores)
+            res.render('home', prestadores)
+
+        }else{
+            const prestadores = await Prestadores.findAll({
+                raw: true,
+                include: {model: Profissoes}
+            })
+
+            console.log(prestadores)
+            res.render('home', prestadores)
+        }
     }
 
     static login(req, res){
