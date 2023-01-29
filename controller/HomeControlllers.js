@@ -15,6 +15,7 @@ class HomeController{
 
         const filtro = req.query.filtro;
         const pesquisa = req.query.pesquisar;
+        let status = false
 
         if(filtro == 1){
             const prestadores = await Prestadores.findAll({
@@ -23,8 +24,9 @@ class HomeController{
                 where: {nome: {[Op.like]: `%${pesquisa}%`}}
             });
 
-            console.log(prestadores)
-            res.render('home', prestadores)
+            status = true
+
+            res.render('home', {prestadores, status})
 
         }else if(filtro == 2){
             const prestadores = await Prestadores.findAll({
@@ -35,8 +37,9 @@ class HomeController{
                 }     
             });
 
-            console.log(prestadores)
-            res.render('home', prestadores)
+            status = true
+
+            res.render('home', {prestadores, status})
 
         }else{
             const prestadores = await Prestadores.findAll({
@@ -44,8 +47,7 @@ class HomeController{
                 include: {model: Profissoes}
             })
 
-            console.log(prestadores)
-            res.render('home', prestadores)
+            res.render('home', {prestadores, status})
         }
     }
 
