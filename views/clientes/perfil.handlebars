@@ -6,7 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-
+    <style>
+      body{
+        background-color: rgb(233, 238, 238);
+      }
+    </style>
 </head>
 <body>
     <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
@@ -28,9 +32,9 @@
         </div>
 
     </header> 
-    <div align="">
+    <div align="" style="background-color:rgb(233, 238, 238)">
         {{#with cliente}}
-        <ul class="list-group">
+        <ul class="list-group" >
             <li class="list-group-item">Nome: {{nome}}</li>
             <li class="list-group-item">Sobrenome: {{sobrenome}}</li>
             <li class="list-group-item">CPF: {{cpf}}</li>
